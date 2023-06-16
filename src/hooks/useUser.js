@@ -1,5 +1,5 @@
 import { signInWithEmailAndPassword, signOut } from 'firebase/auth'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 export function useUser(auth) {
   const [user, setUser] = useState(null)

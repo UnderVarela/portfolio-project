@@ -1,3 +1,4 @@
+import { LoginForm } from './components/LoginForm'
 import { auth } from './helpers/firebase/firebase'
 import { useUser } from './hooks/useUser'
 
@@ -7,9 +8,7 @@ function App() {
   const { email } = user || false
   const { message } = error || false
   
-  const handleSign = () => {
-    const email = 'under.varela@gmail.com'
-    const password = 'Triquinosis4'
+  const handleSign = ({username: email, password}) => {
     _signInWithEmailAndPassword(email, password)
   }
 
@@ -20,16 +19,11 @@ function App() {
   return (
    <>
    <h1>Ejemplo de conexión</h1>
-   <fieldset>
-    <legend>Acceso privado </legend>
-    { email }
-    { message && <div></div>}
-    { isLoading && 'Cargando....' }
-    { !email 
-         ? <button onClick={handleSign}>Login</button>
-         : <button onClick={handleSignOut}>Cerrar sesión</button>
-    }
-   </fieldset>
+   <LoginForm onsubmit={handleSign} />
+   {message}
+   {email}
+   {isLoading && 'Cargando....'}
+   
    </>
   )
 }
