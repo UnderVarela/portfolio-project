@@ -1,34 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { auth } from './helpers/firebase/firebase'
+import { useUser } from './hooks/useUser'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { isLoading, user, _signInWithEmailAndPassword, _signOut, error } = useUser(auth)
+  const { email } = user || false
+  const { message } = error || false
+  
+  const handleSign = () => {
+    const email = 'under.varela@gmail.com'
+    const password = 'Triquinosis4'
+    _signInWithEmailAndPassword(email, password)
+  }
+
+  const handleSignOut = () => {
+    _signOut()
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+   <>
+   <h1>Ejemplo de conexión</h1>
+   <fieldset>
+    <legend>Acceso privado </legend>
+    { email }
+    { message && <div></div>}
+    { isLoading && 'Cargando....' }
+    { !email 
+         ? <button onClick={handleSign}>Login</button>
+         : <button onClick={handleSignOut}>Cerrar sesión</button>
+    }
+   </fieldset>
+   </>
   )
 }
 
