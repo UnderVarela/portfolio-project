@@ -1,10 +1,40 @@
-import { signInWithEmailAndPassword, signOut } from 'firebase/auth'
-import { useState } from 'react'
+import { onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth'
+import { useState, useEffect } from 'react'
+
+const initialValue = {
+  uid: '',
+  email: '',
+  displayName: ''
+}
 
 export function useUser(auth) {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(initialValue)
   const [error, setError] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
+  const loadUser = () => {
+  //   let data = localStorage.getItem('user')
+  //   data = JSON.parse(data)
+  //   if(data) {
+  //   setUser(JSON.parse(data))
+  //   return
+  // }
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const data = { uid: user.uid, email: user.email, displayName: user.displayName }
+  // localStorage.setItem('user', JSON.stringify(data))
+        setUser(
+          data
+        )
+    } else {
+      // User is signed out
+      // ...
+    }
+  })
+}
+
+useEffect (()=>{
+  loadUser()
+}, [])
 
   const _signInWithEmailAndPassword = (email, password) => {
     setIsLoading(true)
@@ -13,7 +43,12 @@ export function useUser(auth) {
       .then((userCredential) => {
         // Signed in
         // console.log(userCredential.user)
-        setUser(userCredential.user)
+        const { user } = userCredential
+        const data = { uid: user.uid, email: user.email, displayName: user.displayName }
+        // localStorage.setItem('user', JSON.stringify(data))
+        setUser(
+          data
+        )
         // ...
       })
       .catch(setError)
@@ -25,7 +60,8 @@ export function useUser(auth) {
     setError(null)
     signOut(auth).then(() => {
       // Sign-out successful.
-    setUser(null)
+    setUser(initialValue)
+    // localStorage.removeItem('user')
     }).catch((error) => {
       // An error happened.
       setError(error)
@@ -36,6 +72,10 @@ export function useUser(auth) {
     _signInWithEmailAndPassword,
     _signOut,
     user,
+    // ...user,
+    email: user.email,
+    uid: user.uid,
+    displayName: user.displayName,
     error,
     isLoading
   }

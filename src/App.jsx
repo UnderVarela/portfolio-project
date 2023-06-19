@@ -4,11 +4,10 @@ import { useUser } from './hooks/useUser'
 
 
 function App() {
-  const { isLoading, user, _signInWithEmailAndPassword, _signOut, error } = useUser(auth)
-  const { email } = user || false
+  const { isLoading, email, error, _signInWithEmailAndPassword, _signOut } = useUser(auth)
   const { message } = error || false
   
-  const handleSign = ({username: email, password}) => {
+  const handleSign = ({ email, password}) => {
     _signInWithEmailAndPassword(email, password)
   }
 
@@ -19,7 +18,7 @@ function App() {
   return (
    <>
    <h1>Ejemplo de conexión</h1>
-   <LoginForm onsubmit={handleSign} />
+   <LoginForm onSubmit={handleSign} onSignOut={handleSignOut} />
    {message}
    {email}
    {isLoading && 'Cargando....'}
