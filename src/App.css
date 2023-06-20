@@ -34,6 +34,8 @@
 }
 
 .card {
+  grid: 0;
+  place-content: center;
   padding: 2em;
 }
 
