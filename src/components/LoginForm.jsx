@@ -20,7 +20,7 @@ export function LoginForm({ onSubmit, onSignOut }) {
   }
 
   return (
-    <div className='grid px-8 pt-6 pb-8 mb-4 bg-white rounded place-content-center'>
+    <><div className='grid px-8 pt-6 pb-8 mb-4 bg-white rounded place-content-center'>
       <div className='mb-4'>
         <label className='block mb-2 text-sm font-bold text-grey-darker' htmlFor='email'>
           Correo electrónico
@@ -52,7 +52,12 @@ export function LoginForm({ onSubmit, onSignOut }) {
         </button>
 
       </div>
+     <div className='grid mt-10 place-items-center'>
+     <img src='src/images/shield-lock.svg' alt='Imagen cargada' />
+     <p className='text-4xl'><strong>Zona Privada</strong></p>
+   </div>
     </div>
+   </>
   )
 }
 
