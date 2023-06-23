@@ -26,8 +26,8 @@ export function HomePage() {
           link='https://www.example.com'
         />
           <Card
-            imageSrc='src/images/IMDB_recortado.jpg'
-            title='Artistadas'
+            imageSrc='src/images/books.jpg'
+            title='Intereses'
             description='Proyectos artisticos propios y ajenos.'
             link='https://www.imdb.com/name/nm6244375/?ref_=fn_al_nm_1'
           />

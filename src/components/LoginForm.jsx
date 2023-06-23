@@ -20,44 +20,45 @@ export function LoginForm({ onSubmit, onSignOut }) {
   }
 
   return (
-    <><div className='grid px-8 pt-6 pb-8 mb-4 bg-white rounded place-content-center'>
-      <div className='mb-4'>
-        <label className='block mb-2 text-sm font-bold text-grey-darker' htmlFor='email'>
-          Correo electrónico
-        </label>
-        <input className='w-full px-3 py-2 border rounded shadow appearance-none text-grey-darker' id='email' ref={emailRef} onChange={handleChange} name='email' value={email} type='email' placeholder='pepito@gmail.com' />
+    <>
+      <div className="flex items-start justify-center h-screen">
+        <div className='grid px-4 pt-2 pb-4 mb-2 bg-white rounded place-content-center'>
+          <div className='mb-4'>
+            <label className='block mb-2 text-sm font-bold text-grey-darker' htmlFor='email'>
+              Correo electrónico
+            </label>
+            <input className='w-full px-3 py-2 border rounded shadow appearance-none text-grey-darker' id='email' ref={emailRef} onChange={handleChange} name='email' value={email} type='email' placeholder='pepito@gmail.com' />
+          </div>
+          <div className='mb-6'>
+            <label className='block mb-2 text-sm font-bold text-grey-darker' htmlFor='password'>
+              Contraseña
+            </label>
+            <input className='w-full px-3 py-2 mb-3 border rounded shadow appearance-none border-red text-grey-darker' id='password' ref={passwordRef} onChange={handleChange} name='password' value={password} type='password' placeholder='******************' />
+            <p className='text-xs italic text-red'>Por favor escribe una contraseña.</p>
+          </div>
+          <div className='flex items-center justify-start gap-2'>
+            <button
+              onClick={handleSubmit}
+              className="px-4 py-2 font-bold text-white transition-all bg-gray-500 rounded hover:bg-gray-700 hover:filter hover:brightness-75"
+              type="button"
+            >
+              Acceder
+            </button>
+            <button
+              onClick={() => onSignOut()}
+              className="px-4 py-2 font-bold text-white transition-all bg-gray-500 rounded hover:bg-gray-700 hover:filter hover:brightness-75"
+              type="button"
+            >
+              Cerrar Sesión
+            </button>
+          </div>
+          <div className='grid mt-10 place-items-center'>
+            <img src='src/images/shield-lock.svg' alt='Imagen cargada' />
+            <p className='text-4xl'><strong>Zona Privada</strong></p>
+          </div>
+        </div>
       </div>
-      <div className='mb-6'>
-        <label className='block mb-2 text-sm font-bold text-grey-darker' htmlFor='password'>
-          Contraseña
-        </label>
-        <input className='w-full px-3 py-2 mb-3 border rounded shadow appearance-none border-red text-grey-darker' id='password' ref={passwordRef} onChange={handleChange} name='password' value={password} type='password' placeholder='******************' />
-        <p className='text-xs italic text-red'>Por favor escribe una contraseña.</p>
-      </div>
-      <div className='flex items-center justify-start gap-2'>
-        <button
-          onClick={handleSubmit}
-          className="px-4 py-2 font-bold text-white transition-all bg-gray-500 rounded hover:bg-gray-700 hover:filter hover:brightness-75"
-          type="button"
-        >
-          Acceder
-        </button>
-
-        <button
-          onClick={() => onSignOut()}
-          className="px-4 py-2 font-bold text-white transition-all bg-gray-500 rounded hover:bg-gray-700 hover:filter hover:brightness-75"
-          type="button"
-        >
-          Cerrar Sesión
-        </button>
-
-      </div>
-     <div className='grid mt-10 place-items-center'>
-     <img src='src/images/shield-lock.svg' alt='Imagen cargada' />
-     <p className='text-4xl'><strong>Zona Privada</strong></p>
-   </div>
-    </div>
-   </>
+    </>
   )
 }
 

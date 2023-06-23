@@ -36,39 +36,32 @@ export function ExperienciaForm() {
 
   }
   return (
-    <form
-      onSubmit={handleSubmit}
-      className='grid place-items-center'>
-      <div className='campo'>
-        <label htmlFor='titulo'>
-          Titulo
-        </label>
-        <input
-          className='border'
-          id='titulo'
-          type='text'
-          name='titulo'
-          required
-        />
-      </div>
-      <div className='campo'>
-        <label htmlFor='descripcion'>
-          Descripcion
-        </label>
-        <input
-          className='border'
-          id='descripcion'
-          type='text'
-          name='descripcion'
+    <>
+    <h2 className='text-4xl'>Experiencia</h2>
+    <div className="flex items-start justify-center h-screen">
+    <div className="max-w-[250%] px-4 py-8 bg-gray-100 rounded">
+      <form onSubmit={handleSubmit} className="grid place-items-center">
+        <div className="mb-4 campo">
+          <label className='block mb-2 text-sm font-bold text-grey-darker' htmlFor="titulo">Titulo</label>
+          <input className="border" id="titulo" type="text" name="titulo" required />
+        </div>
+        <div className="mb-6 campo">
+          <label className='block mb-2 text-sm font-bold text-grey-darker' htmlFor="descripcion">Descripcion</label>
+          <textarea className="border" id="descripcion" type="text" name="descripcion" />
+        </div>
+        <button
+          disabled={isLoading}
+          className="px-4 py-2 font-bold text-white transition-all bg-gray-500 rounded hover:bg-gray-700 hover:filter hover:brightness-75"
+        >
+          Enviar
+        </button>
+        {error?.message}
+        {isLoading && 'Cargando............'}
+      </form>
+    </div>
+  </div>
+  </>
 
-        />
-      </div>
-      <button
-        disabled={isLoading}
-        className='border'>Enviar</button>
-      {error?.message}
-      {isLoading && 'Cargando............'}
-    </form>
   )
 }
 
