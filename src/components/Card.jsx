@@ -5,7 +5,8 @@ function Card(props) {
   const { imageSrc, title, description, link } = props
 
   return (
-    <div className='p-4 overflow-hidden transition duration-300 transform bg-gray-300 rounded-lg shadow-lg hover:scale-105'>
+    <div className='p-4 overflow-hidden transition duration-300 transform bg-white bg-opacity-25 rounded-lg shadow-lg backdrop-filter backdrop-blur-lg hover:scale-105'>
+
       <a href={link} target='_blank' rel='noopener noreferrer'>
         <img className='object-cover w-full h-48' src={imageSrc} alt={title} />
       </a>

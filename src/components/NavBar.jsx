@@ -8,6 +8,9 @@ export function NavBar () {
     <Link to="/">Inicio</Link>
   </div>
   <div className="ml-4">
+    <Link to="/experiencia">Experiencia</Link>
+  </div>
+  <div className="ml-4">
     <Link to="/login">Login</Link>
   </div>
 </nav>

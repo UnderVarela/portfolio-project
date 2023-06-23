@@ -2,6 +2,7 @@ import React from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 import { MainTemplate } from '../templates/MainTemplate'
 import { HomePage, LoginPage } from '../pages'
+import { ExperienciaForm } from '../components/ExperienciaForm'
 
 export const router = createBrowserRouter([
   {
@@ -13,8 +14,12 @@ export const router = createBrowserRouter([
         element: <HomePage />
       },
       {
-        path: '/login',
+        path: 'login',
         element: <LoginPage />
+      },
+      {
+        path: 'experiencia',
+        element: <ExperienciaForm />
       }
     ]
   }
