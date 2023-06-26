@@ -5,12 +5,12 @@ import Card from '../components/Card'
 export function HomePage() {
   return (
     <>
-      <h2 className='text-4xl'>Mis movidas</h2>
+      <h2 className='text-4xl'>Inicio</h2>
       <div className='grid grid-cols-3 gap-4 mx-4 mt-8'>
         <Card
           imageSrc='src/images/istockphoto-622064544-612x612.jpg'
           title='Tecnico audiovisual'
-          description='Descripción del trabajo'
+          description='Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eget scelerisque purus. Quisque at tempor libero. Aenean turpis ex, hendrerit non urna sit amet, lacinia viverra odio.'
           link='https://www.example.com'
         />
         <Card
@@ -22,13 +22,13 @@ export function HomePage() {
         <Card
           imageSrc='src/images/yo.jpg'
           title='Sobre mi'
-          description='Descripción del trabajo 3'
+          description='Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eget scelerisque purus. Quisque at tempor libero. Aenean turpis ex, hendrerit non urna sit amet, lacinia viverra odio.'
           link='https://www.example.com'
         />
-          <Card
+        <Card
             imageSrc='src/images/books.jpg'
             title='Intereses'
-            description='Proyectos artisticos propios y ajenos.'
+            description='Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eget scelerisque purus. Quisque at tempor libero. Aenean turpis ex, hendrerit non urna sit amet, lacinia viverra odio.'
             link='https://www.imdb.com/name/nm6244375/?ref_=fn_al_nm_1'
           />
         <Card
@@ -40,7 +40,7 @@ export function HomePage() {
          <Card
           imageSrc='src/images/coding.jpg'
           title='Programación'
-          description='Descripción del trabajo'
+          description='Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eget scelerisque purus. Quisque at tempor libero. Aenean turpis ex, hendrerit non urna sit amet, lacinia viverra odio.'
           link='https://www.example.com'
         />
       </div>

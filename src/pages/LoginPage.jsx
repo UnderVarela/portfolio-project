@@ -16,7 +16,7 @@ import { useUser } from "../hooks/useUser"
 
   return (
    <>
-   <h1 className="text-4xl">Login</h1>
+   <h1 className="text-4xl">Área personal</h1>
    <LoginForm onSubmit={handleSign} onSignOut={handleSignOut} />
    {message}
    {email}
