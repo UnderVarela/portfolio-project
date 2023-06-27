@@ -7,13 +7,15 @@ export function NavBar () {
   <div className="ml-4">
     <Link to="/">Inicio</Link>
   </div>
-  {/* <div className="ml-4">
+  <div className="ml-4">
     <Link to="/experiencia">Experiencia</Link>
-  </div> */}
+  </div>
   <div className="ml-4">
     <Link to="/login">Login</Link>
   </div>
 </nav>
   )
 }
+
+// {uid && <div> <link to='/experiencias'>Añadir experiencia</link></div>}
 

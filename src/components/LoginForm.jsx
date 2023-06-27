@@ -21,7 +21,7 @@ export function LoginForm({ onSubmit, onSignOut }) {
 
   return (
     <>
-      <div className="flex items-start justify-center h-screen">
+      <div className="flex items-start justify-center h-screen mt-4">
         <div className='grid px-4 pt-2 pb-4 mb-2 bg-white rounded place-content-center'>
           <div className='mb-4'>
             <label className='block mb-2 text-sm font-bold text-grey-darker' htmlFor='email'>

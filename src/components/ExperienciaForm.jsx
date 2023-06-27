@@ -37,8 +37,8 @@ export function ExperienciaForm() {
   }
   return (
     <>
-    <h2 className='text-4xl'>Experiencia</h2>
-    <div className="flex items-start justify-center h-screen">
+    <h2 className='ml-8 font-bold text-white text-8xl rotar'>experiencia</h2>
+    <div className="flex items-start justify-center h-screen mt-6">
     <div className="max-w-[250%] px-4 py-8 bg-gray-100 rounded">
       <form onSubmit={handleSubmit} className="grid place-items-center">
         <div className="mb-4 campo">
