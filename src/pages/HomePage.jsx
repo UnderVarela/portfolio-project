@@ -6,7 +6,7 @@ export function HomePage() {
   return (
     <>
       {/* <h2 className='text-4xl'>Inicio</h2> */}
-      <div className='grid grid-cols-3 gap-4 mx-4 mt-8'>
+      <div className='grid grid-cols-1 gap-4 mx-4 mt-8 sm:grid-cols-2 md:grid-cols-3'>
         <Card
           imageSrc='src/images/istockphoto-622064544-612x612.jpg'
           title='Tecnico audiovisual'
