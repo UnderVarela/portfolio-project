@@ -1,21 +1,25 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-export function NavBar () {
+export function NavBar({ isAuthenticated }) {
   return (
-<nav className="flex justify-end">
-  <div className="ml-4">
-    <Link to="/">Inicio</Link>
-  </div>
-  <div className="ml-4">
-    <Link to="/experiencia">Experiencia</Link>
-  </div>
-  <div className="ml-4">
-    <Link to="/login">Login</Link>
-  </div>
-</nav>
-  )
+    <nav className="flex justify-end">
+      <div className="ml-4">
+        <Link to="/">Inicio</Link>
+      </div>
+      {isAuthenticated && (
+        <div className="ml-4">
+          <Link to="/experiencia">Experiencia</Link>
+        </div>
+      )}
+      <div className="ml-4">
+        <Link to="/login">Login</Link>
+      </div>
+    </nav>
+  );
 }
 
-// {uid && <div> <link to='/experiencias'>Añadir experiencia</link></div>}
-
+NavBar.propTypes = {
+  isAuthenticated: PropTypes.bool.isRequired,
+};
