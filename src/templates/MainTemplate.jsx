@@ -1,10 +1,21 @@
-import React, { useState } from 'react'
-import { NavBar } from '../components/NavBar'
-import { Outlet } from 'react-router-dom'
-
+import React, { useState } from 'react';
+import { NavBar } from '../components/NavBar';
+import { Outlet } from 'react-router-dom';
+import { LoginForm } from '../components/LoginForm';
 
 export function MainTemplate() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const handleLogin = () => {
+   
+    setIsAuthenticated(true);
+  };
+
+  const handleLogout = () => {
+   
+    setIsAuthenticated(false);
+  };
+
   return (
     <>
       <div className="flex flex-col min-h-screen bg-gradient-to-b from-gray-400 to-gray-800">
@@ -14,9 +25,10 @@ export function MainTemplate() {
         </header>
         <main>
           <Outlet />
+          <LoginForm onSubmit={handleLogin} onSignOut={handleLogout} />
         </main>
       </div>
     </>
-  )
+  );
 }
 

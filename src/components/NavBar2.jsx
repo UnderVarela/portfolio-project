@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 export function NavBar({ isAuthenticated }) {
@@ -7,15 +8,18 @@ export function NavBar({ isAuthenticated }) {
       <div className="ml-4">
         <Link to="/">Inicio</Link>
       </div>
+      {isAuthenticated && (
+        <div className="ml-4">
+          <Link to="/experiencia">Experiencia</Link>
+        </div>
+      )}
       <div className="ml-4">
-        <Link to="/experiencia">Experiencia</Link>
-      </div>
-      <div className="ml-4">
-        <Link to="/login">{isAuthenticated ? 'Conectado' : 'Login'}</Link>
+        <Link to="/login">Login</Link>
       </div>
     </nav>
   );
 }
 
-// {uid && <div> <link to='/experiencias'>Añadir experiencia</link></div>}
-
+NavBar.propTypes = {
+  isAuthenticated: PropTypes.bool.isRequired,
+};
